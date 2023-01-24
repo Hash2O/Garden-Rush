@@ -4,6 +4,10 @@ using UnityEngine;
 using UnityEngine.AI;
 
 //URL : https://levelup.gitconnected.com/tip-of-the-day-create-a-point-click-system-in-unity-3d-8de30efee5e2
+
+//Permet d'associer automatiquement un type de component avec le script 
+//quand il est placé sur un objet
+[RequireComponent(typeof(NavMeshAgent))]
 public class MovementManager : MonoBehaviour
 {
     private NavMeshAgent agent;
@@ -29,7 +33,7 @@ public class MovementManager : MonoBehaviour
             RaycastHit hit;
 
             //Si le hit rencontre un collider, celui du NavMesh ici
-            if (Physics.Raycast(ray, out hit))
+            if (Physics.Raycast(ray, out hit))  //out indique que hit va etre initialisé dans la fonction et peut donc varier 
             {
                 //On définit la destination comme étant la position du clic
                 destination = hit.point;
